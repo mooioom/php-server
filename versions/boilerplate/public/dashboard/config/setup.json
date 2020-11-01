@@ -1,0 +1,11 @@
+{
+    "title" : "Administrator",
+    "logo" : "<b>USER</b>PANEL",
+    "controls" : [],
+    "menu" : [
+        {
+            "title" : "Home",
+            "name" : "home"
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "title" : "Administrator",
+    "logo" : "<b>ADMIN</b>PANEL",
+    "controls" : [],
+    "menu" : [
+        {
+            "title" : "Home",
+            "name" : "home"
+        },
+        {
+            "title" : "Users",
+            "name" : "users"
+        },
+        {
+            "title" : "Transactions",
+            "name" : "transactions"
+        },
+        {
+            "title" : "Logs",
+            "name" : "logs"
+        },
+        {
+            "title" : "Versions",
+            "name" : "versions"
+        },
+        {
+            "title" : "Statistics",
+            "name" : "statistics"
+        },
+        {
+            "title" : "Scheduled Tasks",
+            "name" : "tasks"
+        },
+        {
+            "title" : "DB",
+            "name" : "db"
+        }
+    ]
+}

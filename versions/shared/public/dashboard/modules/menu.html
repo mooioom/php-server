@@ -1,0 +1,25 @@
+<script src="__shared/utils/menu.js"></script>
+<link rel="stylesheet" href="__shared/utils/css/menu.css">
+<script>
+
+    console.log('menu::');
+
+    dashboard.menu = new Menu({
+
+        $element : this.$element,
+
+        onclick : function(item,ev){
+
+            ev.stopPropagation();
+
+            location.hash = '#page='+ item.setup.name;
+
+            item.select();
+
+        },
+
+        items : dashboard.setup.menu
+
+    })
+
+</script>

@@ -1,0 +1,107 @@
+<link rel="stylesheet" href="__shared/dashboard/css/dashboard.css">
+<link rel="stylesheet" href="__shared/utils/css/fontello-embedded.css">
+<link rel="stylesheet" href="__shared/utils/css/table.css">
+<link rel="stylesheet" href="__shared/utils/css/popup.css">
+<script src="__shared/utils/table.js"></script>
+<script src="__shared/utils/popup.js"></script>
+<div id="dashboard">
+    <div id="head">
+        <div id="top">
+            <div class="left padd10" module="logo"></div>
+            <div class="right padd10">
+                <div class="actions" id="actions"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="menu" module="menu" module-prevent-load="true"></div>
+    </div>
+    <div id="body">
+        <div class="left" id="controls" style="display: none"></div>
+        <div class="left" id="stage"></div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<script>
+
+    this.page = null;
+
+    this.init = function(){
+
+        require.JSON(this.data.base+'dashboard/config/setup.json',function( setup ){
+
+            this.setup = setup;
+
+            if( this.setup.rtl ) this.$element.classList.add('rtl');
+
+            this.actions = new Modular.Module({
+                base : dashboard.data.base,
+                path : 'dashboard/modules',
+                module : 'actions',
+                $element : this.$actions
+            })
+
+            Modular._menu.load(function(){
+
+                if(!location.hash) location.hash = '#page=home';
+                else {
+                    this.load( this.hash.page );
+                }
+
+                Modular.broadcast('dashboard-init');
+
+            }.bind(this));
+
+        }.bind(this))
+
+    }
+
+    this.load = function( pageName ){
+
+        dashboard.menu.namedItems[pageName].select();
+
+        require.JSON(this.data.base+'dashboard/pages/'+pageName+'/setup.json',function( setup ){
+
+            var pageSetup = {
+                module : 'page',
+                scope : {
+                    setup : setup
+                }
+            }
+
+            setup.$stage    = this.$stage;
+            setup.$controls = this.$controls;
+
+            this.page = new Modular.Module( pageSetup );
+
+        }.bind(this),function(){
+            
+        })
+
+    }
+
+    this.play = function(){
+
+    }
+
+    this.resize = function(){
+
+        this.$body.style.height = (document.body.clientHeight - this.$top.clientHeight) + 'px';
+
+    }
+
+    window.addEventListener('hashchange',function(){
+
+        this.hash = Modular.getHash();
+
+        this.load( this.hash.page );
+
+    }.bind(this))
+
+    this.hash = Modular.getHash();
+
+    this.resize();
+
+    this.init();
+
+</script>

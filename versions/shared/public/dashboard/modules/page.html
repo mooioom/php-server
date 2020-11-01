@@ -1,0 +1,79 @@
+<script>
+
+    this.widgets  = [];
+    this.controls = [];
+
+    this.setup = this.setup || {};
+
+    this.setup.widgets  = this.setup.widgets  || [];
+    this.setup.controls = this.setup.controls || [];
+
+    this.$stage    = this.setup.$stage;
+    this.$controls = this.setup.$controls;
+
+    var totalLoads = this.setup.controls.length;
+
+    var onconstruct = function(){
+
+        totalLoads--;
+
+        if(!totalLoads) this.play();
+
+    }.bind(this)
+
+    this.create = function( typeData, o ){
+
+        var s = typeof o == 'object' ? o : {
+            type : o
+        }
+
+        var o = new Modular.Module({
+            module   : typeData.module,
+            onload   : typeData.onload || null,
+            $element : typeData.$element,
+            scope : {
+                page  : this,
+                setup : s
+            }
+        })
+
+        typeData.parent.push(o);
+
+    }
+
+    this.construct = function(){
+
+        this.$controls.innerHTML = '';
+
+        this.$controls.style.display = 'block';
+
+        this.setup.controls.forEach(function(o){
+
+            this.create({ module : 'control', $element : this.$controls, parent : this.controls, onload : onconstruct },o)
+
+        }.bind(this))
+
+        if(!this.setup.controls.length){
+            this.$controls.style.display = 'none';
+            this.play();
+        }
+
+    }
+
+    this.play = function(){
+
+        console.log('page::play');
+
+        this.$stage.innerHTML = '';
+
+        this.setup.widgets.forEach(function(o){
+
+            this.create({ module : 'widget', $element : this.$stage, parent : this.widgets },o)
+
+        }.bind(this))
+
+    }
+
+    this.construct();
+
+</script>

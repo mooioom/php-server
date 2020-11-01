@@ -1,0 +1,63 @@
+.debut{
+	position: relative;
+}
+
+page{
+	width: 100%;
+	height: 100%;
+	/* overflow: hidden; */
+	padding: 0;
+	margin: 0;
+	display: none;
+	box-sizing: border-box;
+}
+
+.debut-pager{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+.debut-pager-page{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 30px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.debut-pager-page-selected{
+    background: #47e209;
+}
+
+.debut-delay{
+	visibility: hidden !important;
+}
+
+/* Effects */
+
+.fadeout{opacity: 0;}
+
+.fadein{opacity: 1 !important;}
+.fadein-start{opacity: 0;}
+
+.zoomout-start{transform: scale(1);}
+.zoomout{transform: scale(1.2);}
+
+.zoomin-start{transform: scale(1.5);}
+.zoomin{transform: scale(1);}
+
+.zoomin2-start{ transform: scale(2); }
+.zoomin2{ transform: scale(1); }
+
+.zoomin5-start{ transform: scale(5); }
+.zoomin5{ transform: scale(1); }
+
+.zoomin10-start{ transform: scale(10); }
+.zoomin10{ transform: scale(1); }
+
+.fromfar-start{ transform: scale(0.2);}
+.fromfar{ transform: scale(1);}
+
+.rotate-start{transform: rotate(360deg);}
+.rotate{transform: rotate(0deg);}

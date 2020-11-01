@@ -1,0 +1,12 @@
+<style>
+    #logo{
+        font-size: 55px;
+        color: #fff;
+    }
+</style>
+<div id="logo"></div>
+<script>
+    Modular.on('dashboard-init',function(){
+        this.$logo.innerHTML = dashboard.setup.logo || '...';
+    }.bind(this))
+</script>

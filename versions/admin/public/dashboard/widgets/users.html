@@ -1,0 +1,13 @@
+<div id="users"></div>
+<script>
+    call('__admin/get_table',function( data ){
+
+        this.table = new Table({
+            $element : this.$users,
+            data : data
+        })
+
+    }.bind(this),{
+        name : 'users'
+    })
+</script>

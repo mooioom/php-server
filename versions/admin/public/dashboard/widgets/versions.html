@@ -1,0 +1,50 @@
+<div id="versions"></div>
+<script>
+
+    this.render = function(){
+
+        this.$versions.innerHTML = '';
+
+        call('__admin/get_versions',function( versions ){
+
+            var actions = [
+                {
+                    title : 'Clone',
+                    onclick : function( row, mouseEvent ){
+
+                        debugger;
+
+                    }
+                },
+                {
+                    title : 'Set Production',
+                    condition : function( row ){
+                        return !row.production
+                    },
+                    onclick : function( row, mouseEvent ){
+
+                        call('__admin/set_production',function( status ){
+
+                            this.render();
+
+                        }.bind(this),{
+                            version : row.version
+                        })
+
+                    }.bind(this)
+                }
+            ]
+
+            new Table({
+                data : versions,
+                $element : this.$versions,
+                actions : actions
+            })
+
+        }.bind(this));
+
+    }
+
+    this.render();
+
+</script>

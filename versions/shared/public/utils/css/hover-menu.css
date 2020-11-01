@@ -1,0 +1,30 @@
+.hover-menu{
+    position: relative;
+}
+
+.hover-menu .hover-menu-items{
+    display: none;
+    position: absolute;
+    top:0;
+    left: 0;
+}
+
+.hover-menu:hover .hover-menu-items{
+    display: block;
+}
+
+.hover-menu .hover-menu-items .hover-menu-item{
+    display: inline-block;
+    font-size: 25px;
+    color: #00000047;
+    padding: 5px;
+}
+
+.hover-menu .hover-menu-items .hover-menu-item:hover{
+
+color: #000;
+}
+
+.hover-menu .hover-menu-items .hover-menu-item i{
+
+}

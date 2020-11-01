@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="__shared/dashboard/css/widget.css">
+<div class="widget">
+    <div class="head">
+
+    </div>
+    <div class="body" bind="body"></div>
+</div>
+<script>
+
+    this.widget = new Modular.Module({
+        base : dashboard.data.base,
+        path : 'dashboard/widgets',
+        module : this.setup.type,
+        $element : this.$body
+    })
+
+</script>

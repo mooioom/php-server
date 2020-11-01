@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="popup.js"></script>
+    <script src="form.js"></script>
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/form.css">
+    <title>Utils Tester</title>
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+
+            f = new Form({
+
+                // titles : false,
+                zoom : 0.8,
+
+                data : {
+                    name : 'My Name',
+                    age  : '',
+                    gender : 'female',
+                    fruits : ['apples'],
+                    true : false,
+                    date : "2019-03-14",
+                    color : '#e1e648',
+                    range : 12,
+                    toggle : true
+                },
+
+                inputs : {
+
+                    name : {
+                        description : 'What is your name?',
+                        required : true
+                    },
+
+                    age  : {
+                        type : 'number',
+                        placeholder : 'My Age Is...',
+                        description : 'Please Fill in your age',
+                        validation : function( value, data ){
+                            if(!value) return 'Age Required';
+                            if(value < 12) return 'Too young';
+                            if(value > 15) return 'Too old';
+                        }
+                    },
+
+                    gender : {
+                        type : 'select',
+                        options : [ 
+                            { title : 'Male', value : 'male' },
+                            { title : 'Female', value : 'female' }
+                        ]
+                    },
+
+                    fruits : {
+                        description : 'What is your fruits?',
+                        type : 'select',
+                        multiple : true,
+                        options : [ 
+                            { title : 'Apples', value : 'apples' },
+                            { title : 'Oranges', value : 'oranges' },
+                            { title : 'Grapes', value : 'grapes' }
+                        ]
+                    },
+
+                    range : {
+                        type : 'range',
+                        min : 1,
+                        max : 10,
+                        step : 1
+                    },
+
+                    toggle : {
+                        title : 'My Toggle Button',
+                        description : 'Toggle Button',
+                        type : 'toggle',
+                        width : 70,
+                        height : 20
+                    },
+
+                    true : {
+                        type : 'checkbox',
+                        description : 'Show Birthday?',
+                        visibility : {
+                            gender : 'male',
+                            age : 12
+                        }
+                    },
+
+                    date : {
+                        title : 'Birthday',
+                        type : 'date',
+                        visibility : function( d ){
+                            return d.true;
+                        }
+                    },
+
+                    color : {
+                        description : 'Favorite Color?',
+                        type : 'color'
+                    }
+
+
+                },
+
+                // columns : [
+                //     {
+                //         title : 'Basic',
+                //         description : 'Basic Information',
+                //         properties : ['name','age','gender']
+                //     },
+                //     {
+                //         title : 'Extended',
+                //         description : 'Advanced Information',
+                //         properties : ['fruits','true','color','date']
+                //     }
+                // ]
+
+            });
+
+            // console.log(f.$element);
+
+            document.body.appendChild(f.$element);
+
+            p = new Popup({
+                title : 'Form',
+                body : f.$element,
+                padding : 0,
+                buttons : [
+                    {
+                        title : 'Submit',
+                        onclick : function(){
+                            console.log( f.getData() );
+                        }
+                    }
+                ]
+            });
+
+            f.settings.onchange = function( data, validation ){
+                p.center();
+            }
+
+            p.center();
+
+        });
+    </script>
+</body>
+</html>

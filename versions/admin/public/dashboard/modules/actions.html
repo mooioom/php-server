@@ -1,0 +1,8 @@
+<div class="button" id="logout"><i class="icon-lock"></i></div>
+<script>
+    this.$logout.onclick = function(){
+        call( dashboard.data.base + 'logout',function(){
+            location.reload();
+        })
+    }
+</script>

@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="__shared/utils/css/table.css">
+<script src="__shared/utils/table.js"></script>
+<div id="transactions"></div>
+<script>
+    call('__admin/get_table',function( data ){
+
+        this.table = new Table({
+            $element : this.$transactions,
+            data : data
+        })
+
+    }.bind(this),{
+        name : 'transactions'
+    })
+</script>

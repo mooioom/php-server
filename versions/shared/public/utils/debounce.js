@@ -1,0 +1,1 @@
+window.debounce = function( fn, ms ){ var t = null; return function(){ clearTimeout(t); var args = arguments; t = setTimeout(function(){ fn.apply(null,args); t = null; },ms||350);} }

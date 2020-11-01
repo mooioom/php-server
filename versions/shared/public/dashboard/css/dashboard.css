@@ -1,0 +1,87 @@
+html,body{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.rtl{
+    direction: rtl;
+}
+
+.left{ float: left; }
+.right{ float: right; }
+.clear{ clear: both; }
+
+.rtl .left{ float: right; }
+.rtl .right{ float: left; }
+
+.padd5{padding: 5px;}
+.padd10{padding: 10px;}
+
+#dashboard{
+    width: 100%;
+    height: 100%;
+}
+
+#head{
+
+}
+
+#top{
+    background: #212121;
+}
+
+#logo{}
+
+#actions{}
+
+.actions .button{
+    background: #676767;
+    padding: 11px;
+    font-size: 18px;
+    color: #fff;
+    box-sizing: border-box;
+    border-radius: 0px;
+    /* padding-left: 10px; */
+    /* padding-right: 10px; */
+    cursor: pointer;
+}
+.actions .button:hover{
+    background: #005ca5;
+}
+
+#menu{
+    background: #333;
+    color: #fff;
+}
+
+#body{
+    
+}
+
+#controls{
+    height: 100%;
+    width: 220px;
+    background: #eaeaea;
+    padding: 5px;
+    border-right: 1px solid #ccc;
+}
+
+#stage{
+    height: 100%;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+module{
+    display: block;
+}
+
+#dashboard #menu .menu-item{
+    padding: 15px;
+    font-size: 18px;
+}

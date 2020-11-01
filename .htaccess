@@ -1,0 +1,8 @@
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !(robots\.txt)$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [NC,QSA,L]
+RewriteRule ^system - [L,R=404,NC]
+RewriteRule ^versions - [L,R=404,NC]
+RewriteRule ^shared - [L,R=404,NC]

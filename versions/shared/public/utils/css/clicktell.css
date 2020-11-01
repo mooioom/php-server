@@ -1,0 +1,15 @@
+.clicktell{
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    transition: all 0.2s ease-out;
+    z-index: 99999999999999999999;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    user-select: none;
+    pointer-events: none;
+}
+
+.clicktell.clicktell-expand{
+    transform: scale(3);background: #0000;
+}

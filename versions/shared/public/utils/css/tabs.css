@@ -1,0 +1,24 @@
+.tabs{}
+
+.tabs-stage{}
+
+.tabs-stage .tab{}
+
+.tabs-buttons{}
+
+.tabs-buttons .tabs-button{
+    display: inline-block;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.tabs-buttons .tabs-button.tabs-button-selected{
+    background: #2196F3 !important;
+}
+
+.tabs-buttons .tabs-button:hover{
+    background: #ffffff14;
+}

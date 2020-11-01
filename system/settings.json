@@ -1,0 +1,11 @@
+{
+    "app": {
+        "version": "boilerplate"
+    },
+    "db": {
+        "server": "localhost",
+        "user": "root",
+        "password": "",
+        "db": "basic"
+    }
+}
