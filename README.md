@@ -53,3 +53,4 @@ Usage example :
 
     $user = $db->select('users',['name' => $data['username'], 'password' => $data['password']]);
     if( $user ) $_SESSION['_admin'] = $user;
+
